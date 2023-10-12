@@ -1,0 +1,97 @@
+<?php
+
+require_once __DIR__ . '/../Database/Database.php';
+
+class User
+{
+    protected $id;
+    protected $full_name;
+    protected $username;
+    protected $email;
+    protected $password;
+    protected $picture;
+    protected $phone_number;
+    protected $address;
+    protected $birthday;
+    protected $education;
+    protected $work_experience;
+    protected $programming_languages;
+    protected $github;
+    protected $linkedin;
+    protected $twitter;
+    protected $leetcode;
+    protected $website;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    //region register
+    public static function register(
+        $full_name,
+        $username,
+        $email,
+        $password,
+    )
+    {
+        $db = Database::getInstance();
+
+        $existingUser = $db->select(
+            'User',
+            'SELECT id FROM users WHERE email = :email',
+            [':email' => $email]
+        );
+
+        if ($existingUser && count($existingUser) > 0) {
+            header('Location: signup?err=email-exists');
+            die();
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $db->insert(
+            'User',
+            'INSERT INTO users (full_name, username, email, password)
+                VALUES
+                        (:full_name, :username, :email, :password)',
+            [
+                ':full_name' => $full_name,
+                ':username' => $username,
+                ':email' => $email,
+                ':password' => $hashedPassword,
+            ]
+        );
+        return $db->lastInsertId();
+    }
+    //endregion
+
+    //region login
+    public static function login(
+        $email,
+        $password,
+    )
+    {
+        $db = Database::getInstance();
+
+        $users = $db->select(
+            'User',
+            'SELECT * FROM users WHERE email LIKE :email',
+            [
+                ':email' => $email,
+            ]
+        );
+
+        if (count($users) > 0) {
+            $user = $users[0];
+            $hashedPassword = $user->password;
+
+            if (password_verify($password, $hashedPassword)) {
+                return $user;
+            }
+        }
+
+        return null;
+    }
+    //endregion
+}
