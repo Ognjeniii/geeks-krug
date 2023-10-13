@@ -33,8 +33,7 @@ class User
         $username,
         $email,
         $password,
-    )
-    {
+    ) {
         $db = Database::getInstance();
 
         $existingUser = $db->select(
@@ -70,8 +69,7 @@ class User
     public static function login(
         $email,
         $password,
-    )
-    {
+    ) {
         $db = Database::getInstance();
 
         $users = $db->select(
