@@ -33,6 +33,18 @@
             <input type="password" name="password">
         </label>
         <button type="submit">Log In!</button>
+
+        <?php
+        if (isset($_GET['error'])) : ?>
+            <p class="error">
+                <?php
+                if ($_GET['error'] === 'do_you_even_exists') : ?>
+                    Wrong Email or Password!
+                <?php
+                endif ?>
+            </p>
+        <?php
+        endif ?>
     </form>
 </body>
 

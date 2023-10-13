@@ -8,7 +8,7 @@ $password = $_POST['password'];
 $user = User::login($email, $password);
 
 if ($user === null) {
-    header('Location: ../../resources/views/login?err=error');
+    header('Location: /login?error=do_you_even_exists');
     die();
 }
 

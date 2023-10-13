@@ -44,6 +44,10 @@ switch ($request) {
         require __DIR__ . $viewDir . '/auth/login.php';
         break;
 
+    case '/login?error=do_you_even_exists':
+        require __DIR__ . $viewDir . '/auth/login.php';
+        break;
+
     case '/test':
         require __DIR__ . $viewDir . '/test.php';
         break;
