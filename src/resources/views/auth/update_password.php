@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['code_verified'])) {
+    header('Location: /login');
+    die();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 

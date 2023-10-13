@@ -1,5 +1,5 @@
 <?php
-require '../EmailSender.php';
+require __DIR__ . '/../EmailSender.php';
 
 $emailTo = $_POST["email"];
 

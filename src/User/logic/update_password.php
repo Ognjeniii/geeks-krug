@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require __DIR__ . '/../User.php';
 
 $newPass = $_POST["new_pass"];
@@ -18,5 +19,6 @@ if ($result == -1) {
     die();
 }
 
+session_destroy();
 header('Location: /login');
 die();
