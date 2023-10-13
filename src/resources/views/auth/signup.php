@@ -45,6 +45,36 @@
             <input type="password" name="password_repeat">
         </label>
         <button type="submit">Sign Up!</button>
+
+        <?php
+        if (isset($_GET['error'])) : ?>
+            <p class="error">
+                <?php
+                if ($_GET['error'] === 'full_name') : ?>
+                    Fullname is required!
+                <?php
+                elseif ($_GET['error'] === 'username') : ?>
+                    Username is required!
+                <?php
+                elseif ($_GET['error'] === 'email') : ?>
+                    Email is required!
+                <?php
+                elseif ($_GET['error'] === 'password') : ?>
+                    Password is required!
+                <?php
+                elseif ($_GET['error'] === 'password_repeat') : ?>
+                    Password repeat is required!
+                <?php
+                elseif ($_GET['error'] === 'pass_not_match') : ?>
+                    Password and password repeat are not same!
+                <?php
+                else : ?>
+                    You have not entered all required fields!
+                <?php
+                endif ?>
+            </p>
+        <?php
+        endif ?>
     </form>
 </body>
 

@@ -2,16 +2,16 @@
 
 require_once __DIR__ . '/../User.php';
 
-if (!isset($_POST['full_name'])) {
-    header('Location: /signup?error=full_name');
-    die();
-}
-
 $full_name = $_POST['full_name'];
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $password_repeat = $_POST['password_repeat'];
+
+if (empty($full_name)) {
+    header('Location: /signup?error=full_name');
+    die();
+}
 
 if (empty($username)) {
     header('Location: /signup?error=username');
