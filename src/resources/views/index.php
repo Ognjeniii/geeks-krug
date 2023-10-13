@@ -14,7 +14,7 @@
 
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 GK
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -28,13 +28,13 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Log in</a>
+                            <a class="nav-link" href="/login">Log in</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign up</a>
+                            <a class="nav-link" href="/signup">Sign up</a>
                         </li>
                     </ul>
                     <form class="d-flex mt-3" role="search">
