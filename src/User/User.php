@@ -91,5 +91,36 @@ class User
 
         return null;
     }
+
+    //endregion
+
+    //region reset pass
+    public static function resetPassword($email, $newPassword): int
+    {
+        $db = Database::getInstance();
+        $emailFromDatabase = $db->select
+        (
+            'User',
+            "select * from users where email like :email",
+            [
+                ':email' => $email,
+            ]
+        );
+
+        if ($emailFromDatabase == null) {
+            return -1;
+        }
+
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $db->update(
+            'User',
+            "update users set password = :password where email like :email",
+            [
+                ':password' => $hashedPassword,
+                ':email' => $email
+            ]
+        );
+        return 1;
+    }
     //endregion
 }

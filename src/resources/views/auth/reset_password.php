@@ -14,7 +14,7 @@
 <body>
     <h1>Reset password</h1>
     <div>
-        <form action="logika" method="post">
+        <form action="../../../User/logic/send_email.php" method="post">
             <label for="email">Enter email:</label>
             <input type="email" name="email" placeholder="Email:">
             <button type="submit">Reset password</button>
