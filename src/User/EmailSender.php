@@ -8,11 +8,11 @@ class EmailSender
         return $num;
     }
 
-    private static function generateNumber() : string
+    private static function generateNumber(): string
     {
         $number = "";
-        for($i = 0; $i < 4; $i++){
-            $number .= strval(rand(0,9));
+        for ($i = 0; $i < 4; $i++) {
+            $number .= strval(rand(0, 9));
         }
         return $number;
     }
