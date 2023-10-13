@@ -14,9 +14,10 @@
 <body>
     <h1>Reset password</h1>
     <div>
-        <form action="logika">
+        <form action="logika" method="post">
             <label for="email">Enter email:</label>
             <input type="email" name="email" placeholder="Email:">
+            <button type="submit">Reset password</button>
         </form>
     </div>
 </body>
