@@ -12,6 +12,8 @@ class EmailSender
     public static function sendEmail($emailTo): string
     {
 
+        $config = require __DIR__ . '/../config/mail.php';
+
         $mail = new PHPMailer(true);
         $num = self::generateNumber();
 
@@ -20,7 +22,7 @@ class EmailSender
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'geeks.krug@gmail.com';
-            $mail->Password = 'secret';
+            $mail->Password = $config['password'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
