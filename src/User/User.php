@@ -98,7 +98,33 @@ class User
     public static function resetPassword($email, $newPassword): int
     {
         $db = Database::getInstance();
-        $emailFromDatabase = $db->select(
+
+        try {
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $db->update(
+                'User',
+                "update users set password = :password where email like :email",
+                [
+                    ':password' => $hashedPassword,
+                    ':email' => $email
+                ]
+            );
+            return 1;
+        }
+        catch (Exception $ee) {
+//            echo $ee;
+//            die();
+        }
+        return 0;
+    }
+    //endregion
+
+    //region check email
+    public static function checkEmail($email)
+    {
+        $db = Database::getInstance();
+
+        $users = $db->select(
             'User',
             "select * from users where email like :email",
             [
@@ -106,20 +132,10 @@ class User
             ]
         );
 
-        if ($emailFromDatabase == null) {
-            return -1;
+        foreach($users as $user){
+            return $user;
         }
-
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-        $db->update(
-            'User',
-            "update users set password = :password where email like :email",
-            [
-                ':password' => $hashedPassword,
-                ':email' => $email
-            ]
-        );
-        return 1;
+        return null;
     }
     //endregion
 }

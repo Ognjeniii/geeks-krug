@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <h1>Reset password</h1>
+    <h1>Send verification code</h1>
     <div>
         <form action="../../../User/logic/send_email.php" method="post">
             <label for="email">Enter email:</label>
             <input type="email" name="email" placeholder="Email:">
-            <button type="submit">Reset password</button>
+            <button type="submit">Send</button>
         </form>
     </div>
 </body>

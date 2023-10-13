@@ -34,6 +34,7 @@ class EmailSender
             $mail->send();
 
             return $num;
+
         } catch (Exception $ee) {
             echo $ee;
         }

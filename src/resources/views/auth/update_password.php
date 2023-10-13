@@ -20,10 +20,6 @@ if (!isset($_SESSION['code_verified'])) {
 <body>
     <form action="../../../User/logic/update_password.php" method="post">
 
-        <label for="email">Enter your email address:</label>
-        <input type="email" name="email">
-
-
         <label for="new_pass">Enter new password:</label>
         <input type="password" name="new_pass">
 
