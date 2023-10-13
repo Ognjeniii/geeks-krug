@@ -52,6 +52,10 @@ switch ($request) {
         require __DIR__ . $viewDir . '/test.php';
         break;
 
+    case '/reset_password':
+        require  __DIR__ . $viewDir . '/auth/reset_password.php';
+        break;
+
     default:
         http_response_code(404);
         require __DIR__ . $viewDir . '404.php';
