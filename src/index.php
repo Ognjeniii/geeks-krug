@@ -39,6 +39,10 @@ switch ($request) {
         require __DIR__ . $viewDir . '/auth/signup.php';
         break;
 
+    case '/signup?error=email-exists':
+        require __DIR__ . $viewDir . '/auth/signup.php';
+        break;
+
         // Login routes
     case '/login':
         require __DIR__ . $viewDir . '/auth/login.php';
@@ -52,7 +56,7 @@ switch ($request) {
         require __DIR__ . $viewDir . '/test.php';
         break;
 
-    case '/reset_password':
+    case '/reset':
         require  __DIR__ . $viewDir . '/auth/reset_password.php';
         break;
 

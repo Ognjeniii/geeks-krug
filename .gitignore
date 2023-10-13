@@ -1,5 +1,5 @@
 .idea/
 logs/
-vendor/
+vendor
 .DS_Store
 **/.DS_Store

@@ -43,7 +43,7 @@ class User
         );
 
         if ($existingUser && count($existingUser) > 0) {
-            header('Location: signup?err=email-exists');
+            header('Location: /signup?error=email-exists');
             die();
         }
 
@@ -98,8 +98,7 @@ class User
     public static function resetPassword($email, $newPassword): int
     {
         $db = Database::getInstance();
-        $emailFromDatabase = $db->select
-        (
+        $emailFromDatabase = $db->select(
             'User',
             "select * from users where email like :email",
             [

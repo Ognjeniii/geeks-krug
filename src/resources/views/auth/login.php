@@ -46,7 +46,7 @@
         <?php
         endif ?>
     </form>
-<a href="/reset_password">reset password</a>
+    <a href="/reset_password">reset password</a>
 </body>
 
 </html>
