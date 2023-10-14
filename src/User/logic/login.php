@@ -15,6 +15,7 @@ if ($user === null) {
 session_start();
 
 $_SESSION['user_id'] = $user->getId();
+
 $user_type_id = $user->getUserTypeId();
 $_SESSION['user_type_id'] = $user_type_id;
 
