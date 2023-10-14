@@ -5,6 +5,7 @@ require_once __DIR__ . '/../Database/Database.php';
 class User
 {
     protected $id;
+    protected $user_type_id;
     protected $full_name;
     protected $username;
     protected $email;
@@ -25,6 +26,11 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getUserTypeId()
+    {
+        return $this->user_type_id;
     }
 
     //region register
@@ -51,10 +57,11 @@ class User
 
         $db->insert(
             'User',
-            'INSERT INTO users (full_name, username, email, password)
+            'INSERT INTO users ( user_type_id, full_name, username, email, password)
                 VALUES
-                        (:full_name, :username, :email, :password)',
+                        (:user_type_id, :full_name, :username, :email, :password)',
             [
+                ':user_type_id' => 2,
                 ':full_name' => $full_name,
                 ':username' => $username,
                 ':email' => $email,
@@ -131,6 +138,22 @@ class User
                 ':email' => $email,
             ]
         );
+
+        foreach($users as $user){
+            return $user;
+        }
+        return null;
+    }
+    //endregion
+
+    //region get user by email
+    public static function getUserByEmail($email)
+    {
+        $db = Database::getInstance();
+        $users = $db->select('User', "select * from users where email like :email",
+        [
+           ":email" => $email
+        ]);
 
         foreach($users as $user){
             return $user;
