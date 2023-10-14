@@ -69,11 +69,14 @@ switch ($request) {
         break;
 
         // User routes
-    case '/user':
+    case '/home':
         require __DIR__ . $viewDir . '/user/dashboard.php';
         break;
 
         // Admin routes
+    case '/admin':
+        require __DIR__ . $viewDir . '/admin/dashboard.php';
+        break;
 
     default:
         http_response_code(404);

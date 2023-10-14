@@ -20,6 +20,6 @@ $user_type_id = $user->getUserTypeId();
 $_SESSION['user_type_id'] = $user_type_id;
 
 if ($user_type_id == 2) {
-    header('Location: /user');
+    header('Location: /home');
     die();
 }
