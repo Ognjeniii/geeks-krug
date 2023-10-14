@@ -68,6 +68,13 @@ switch ($request) {
         require __DIR__ . $viewDir . '/auth/update_password.php';
         break;
 
+        // User routes
+    case '/user':
+        require __DIR__ . $viewDir . '/user/dashboard.php';
+        break;
+
+        // Admin routes
+
     default:
         http_response_code(404);
         require __DIR__ . $viewDir . '404.php';
