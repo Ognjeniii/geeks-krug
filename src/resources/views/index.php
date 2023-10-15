@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_COOKIE['stay_logged_token'])){
+if (isset($_COOKIE['stay_logged_token'])) {
     $user_cookie = $_COOKIE['user_token'];
     $_SESSION['user_id'] = $user_cookie;
     header('Location: /home');
@@ -8,7 +8,6 @@ if(isset($_COOKIE['stay_logged_token'])){
 }
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -20,6 +19,18 @@ if(isset($_COOKIE['stay_logged_token'])){
     <title>Geeks Krug</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-8 {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body data-bs-theme="dark">
@@ -57,6 +68,36 @@ if(isset($_COOKIE['stay_logged_token'])){
             </div>
         </div>
     </nav>
+
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5 h-100 d-flex items-center justify-content-center">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Geeks Krug</h1>
+                <p class="col-lg-10 fs-4">Connect with developers from across the globe on our social platform. Share your coding triumphs, exchange ideas, collaborate on projects, and learn from the best. Join the ultimate hub for tech enthusiasts and take your development journey to new heights!</p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-dark">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
+                    <a href="#" class="nav-item nav-link mt-4 text-center">Forgot password?</a>
+                    <hr class="my-4">
+                    <a href="#" class="w-100 btn btn-lg btn-success">Create new account</a>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
