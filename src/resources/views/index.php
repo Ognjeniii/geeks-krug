@@ -1,3 +1,15 @@
+<?php
+
+if(isset($_COOKIE['stay_logged_token'])){
+    $user_cookie = $_COOKIE['user_token'];
+    $_SESSION['user_id'] = $user_cookie;
+    header('Location: /home');
+    die();
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 

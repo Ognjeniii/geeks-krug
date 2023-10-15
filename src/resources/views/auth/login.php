@@ -32,6 +32,9 @@
             Password:
             <input type="password" name="password">
         </label>
+        <label for="stay_logged">Stay logged</label>
+        <input type="checkbox" name="stay_logged" value="1">
+
         <button type="submit">Log In!</button>
 
         <?php

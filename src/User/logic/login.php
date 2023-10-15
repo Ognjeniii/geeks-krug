@@ -14,6 +14,17 @@ if ($user === null) {
 
 session_start();
 
+if (isset($_POST['stay_logged'])) {
+    $stay_logged_cookie = "stay_logged_token";
+    $email_hashed = password_hash($email, PASSWORD_DEFAULT);
+    $stay_logged_cookie_value = $email_hashed;
+    setcookie($stay_logged_cookie, $stay_logged_cookie_value, time() + (86400 * 30), "/");
+
+    $user_id_cookie = "user_token";
+    $user_id_cookie_value = $user->getId();
+    setcookie($user_id_cookie, $user_id_cookie_value, time() + (86400 * 30), "/");
+}
+
 $_SESSION['user_id'] = $user->getId();
 
 $user_type_id = $user->getUserTypeId();
