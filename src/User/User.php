@@ -33,6 +33,11 @@ class User
         return $this->user_type_id;
     }
 
+    public function getUserFullName()
+    {
+        return $this->full_name;
+    }
+
     //region register
     public static function register(
         $full_name,
@@ -117,10 +122,9 @@ class User
                 ]
             );
             return 1;
-        }
-        catch (Exception $ee) {
-//            echo $ee;
-//            die();
+        } catch (Exception $ee) {
+            //            echo $ee;
+            //            die();
         }
         return 0;
     }
@@ -139,7 +143,7 @@ class User
             ]
         );
 
-        foreach($users as $user){
+        foreach ($users as $user) {
             return $user;
         }
         return null;
@@ -150,12 +154,15 @@ class User
     public static function getUserByEmail($email)
     {
         $db = Database::getInstance();
-        $users = $db->select('User', "select * from users where email like :email",
-        [
-           ":email" => $email
-        ]);
+        $users = $db->select(
+            'User',
+            "select * from users where email like :email",
+            [
+                ":email" => $email
+            ]
+        );
 
-        foreach($users as $user){
+        foreach ($users as $user) {
             return $user;
         }
         return null;

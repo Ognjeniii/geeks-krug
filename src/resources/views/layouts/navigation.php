@@ -8,7 +8,11 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Geeks Krug</h5>
+                <?php if (!$_SESSION['full_name']) { ?>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Geeks Krug</h5>
+                <?php } else { ?>
+                    <h5 class="offcanvas-title" id="offcanvasNabarLabel"><?php echo $_SESSION['full_name'] ?></h5>
+                <?php } ?>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -24,10 +28,9 @@
                             <a class="nav-link" href="/signup">Sign up</a>
                         </li>
                     <?php } else { ?>
-                        <li><a href="#" class="nav-link">Edit profile</a></li>
+                        <li><a href="/edit_profile" class="nav-link">Edit profile</a></li>
                         <li><a href="../../../User/logic/logout.php" class="nav-link">Logout</a></li>
                     <?php } ?>
-
                 </ul>
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
