@@ -1,5 +1,12 @@
 <?php
 
+require __DIR__ . '/../../../User/User.php';
+
+session_start();
+$user_id = $_SESSION['user_id'];
+
+$user = User::getUserById($user_id);
+
 ?>
 
 <!doctype html>
@@ -17,21 +24,21 @@
 <body>
 
 <div class="container">
-    <form action="">
+    <form action="../../../User/logic/edit_profile.php">
 
         <div class="mb-3">
             <label for="full_name" class="form-label">Full name:</label>
-            <input type="text" name="full_name" value="abc" class="form-control">
+            <input type="text" name="full_name" value="<?php echo $user->getFullName() ?>" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="username" class="form-label">Username:</label>
-            <input type="text" name="username" value="abc" class="form-control">
+            <input type="text" name="username" value="<?php echo $user->getUsername(); ?>" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="profile_picture" class="form-label">Profile picture:</label>
-            <input type="image" name="profile_picture" value="abc">
+            <input type="image" name="profile_picture" value="">
         </div>
 
         <div class="mb-3">

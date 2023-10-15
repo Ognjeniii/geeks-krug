@@ -14,9 +14,6 @@ class User
     protected $phone_number;
     protected $address;
     protected $birthday;
-    protected $education;
-    protected $work_experience;
-    protected $programming_languages;
     protected $github;
     protected $linkedin;
     protected $twitter;
@@ -33,9 +30,69 @@ class User
         return $this->user_type_id;
     }
 
-    public function getUserFullName()
+    public function getFullName()
     {
         return $this->full_name;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getGithub()
+    {
+        return $this->github;
+    }
+
+    public function getLeetcode()
+    {
+        return $this->leetcode;
+    }
+
+    public function getLinkedin()
+    {
+        return $this->linkedin;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getPhoneNumber()
+    {
+        return $this->phone_number;
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function getTwitter()
+    {
+        return $this->twitter;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function getWebsite()
+    {
+        return $this->website;
     }
 
     //region register
@@ -168,4 +225,24 @@ class User
         return null;
     }
     //endregion
+
+    //region get user by id
+    public static function getUserById($id)
+    {
+        $db = Database::getInstance();
+        $users = $db->select(
+            'User',
+            "select * from users where id like :id",
+            [
+                ":id" => $id
+            ]
+        );
+
+        foreach ($users as $user) {
+            return $user;
+        }
+        return null;
+    }
+    //endregion
+
 }

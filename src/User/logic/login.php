@@ -26,8 +26,7 @@ if (isset($_POST['stay_logged'])) {
 }
 
 $_SESSION['user_id'] = $user->getId();
-
-$_SESSION['full_name'] = $user->getUserFullName();
+$_SESSION['full_name'] = $user->getFullName();
 
 $user_type_id = $user->getUserTypeId();
 $_SESSION['user_type_id'] = $user_type_id;
