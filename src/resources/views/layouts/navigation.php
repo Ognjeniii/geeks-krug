@@ -25,6 +25,7 @@
                         </li>
                     <?php } else { ?>
                         <li><a href="#" class="nav-link">Edit profile</a></li>
+                        <li><a href="../../../User/logic/logout.php" class="nav-link">Logout</a></li>
                     <?php } ?>
 
                 </ul>
