@@ -74,19 +74,13 @@ $user = User::getUserById($user_id);
         <hr />
         <p class="fs-5">Basic Info</p>
 
-        <form action="#" method="post">
-            <div class="mb-3 d-flex justify-content-between align-items-center" id="fullname-row">
-                <div class="d-flex align-items-center gap-2">
-                    <label for="full_name" class="form-label mb-0">Full Name:</label>
-                    <input type="text" class="form-control" name="full_name" placeholder="<?php
-                                                                                            echo $user->getFullName(); ?>" disabled>
-                </div>
-                <div>
-                    <button type="button" class="edit-button btn btn-primary" data-row-id="fullname-row">Edit</button>
-                    <button type="submit" class="save-button btn btn-success" style="display: none;">Save</button>
-                </div>
-            </div>
-        </form>
+        <div class="m-3">
+            <form action="../../../User/logic/edit_profile/edit_full_name.php" method="post">
+                <label for="full_name">Full name:</label>
+                <input type="text" name="full_name" value="<?php echo $user->getFullName(); ?>">
+                <button type="submit">save</button>
+            </form>
+        </div>
 
         <!-- we need gender in db -->
 
