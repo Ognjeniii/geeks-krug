@@ -85,7 +85,7 @@ $user = User::getUserById($user_id);
             </form>
         </div>
 
-        <form action="#" method="post">
+        <<<<<<< HEAD <form action="#" method="post">
             <div class="mb-3 d-flex justify-content-between align-items-center" id="gender-row">
                 <div class="d-flex align-items-center gap-2">
                     <label for="gender" class="form-label mb-0">Gender:</label>
@@ -100,79 +100,91 @@ $user = User::getUserById($user_id);
                     <button type="submit" class="save-button btn btn-success" style="display: none;">Save</button>
                 </div>
             </div>
-        </form>
+            =======
+            <!-- we need gender in db -->
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_address.php" method="post">
-                <label for="address">Address:</label>
-                <input type="text" name="address" value="<?php
-                                                            echo $user->getAddress(); ?>">
+            <form action="../../../User/logic/edit_profile/edit_gender.php" method="post">
+                <label for="gender">Gender:</label>
+                <select name="gender">
+                    <option value="select">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
                 <button type="submit">save</button>
+                >>>>>>> 9d062d3 (fix)
             </form>
-        </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_birthday.php" method="post">
-                <label for="birthday">Birthday:</label>
-                <input type="date" name="birthday" value="<?php
-                                                            echo $user->getBirthday(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_address.php" method="post">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" value="<?php
+                                                                echo $user->getAddress(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_phone_number.php" method="post">
-                <label for="phone_number">Phone Number:</label>
-                <input type="tel" name="phone_number" value="<?php
-                                                                echo $user->getPhoneNumber(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_birthday.php" method="post">
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" name="birthday" value="<?php
+                                                                echo $user->getBirthday(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_website.php" method="post">
-                <label for="website">Website:</label>
-                <input type="text" name="website" value="<?php
-                                                            echo $user->getWebsite(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_phone_number.php" method="post">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="tel" name="phone_number" value="<?php
+                                                                    echo $user->getPhoneNumber(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_github.php" method="post">
-                <label for="github">GitHub:</label>
-                <input type="text" name="github" value="<?php
-                                                        echo $user->getGithub(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_website.php" method="post">
+                    <label for="website">Website:</label>
+                    <input type="text" name="website" value="<?php
+                                                                echo $user->getWebsite(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_linkedin.php" method="post">
-                <label for="linkedin">LinkedIn:</label>
-                <input type="text" name="linkedin" value="<?php
-                                                            echo $user->getLinkedin(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_github.php" method="post">
+                    <label for="github">GitHub:</label>
+                    <input type="text" name="github" value="<?php
+                                                            echo $user->getGithub(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_x.php" method="post">
-                <label for="x">X:</label>
-                <input type="text" name="x" value="<?php
-                                                    echo $user->getX(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_linkedin.php" method="post">
+                    <label for="linkedin">LinkedIn:</label>
+                    <input type="text" name="linkedin" value="<?php
+                                                                echo $user->getLinkedin(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
 
-        <div class="m-3">
-            <form action="../../../User/logic/edit_profile/edit_leetcode.php" method="post">
-                <label for="leetcode">LeetCode:</label>
-                <input type="text" name="leetcode" value="<?php
-                                                            echo $user->getLeetcode(); ?>">
-                <button type="submit">save</button>
-            </form>
-        </div>
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_x.php" method="post">
+                    <label for="x">X:</label>
+                    <input type="text" name="x" value="<?php
+                                                        echo $user->getX(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
+
+            <div class="m-3">
+                <form action="../../../User/logic/edit_profile/edit_leetcode.php" method="post">
+                    <label for="leetcode">LeetCode:</label>
+                    <input type="text" name="leetcode" value="<?php
+                                                                echo $user->getLeetcode(); ?>">
+                    <button type="submit">save</button>
+                </form>
+            </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
