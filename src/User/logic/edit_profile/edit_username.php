@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditEmail.php';
+require __DIR__ . '/../../EditProfile/EditUsername.php';
 
 session_start();
 
@@ -15,4 +15,3 @@ if ($result == 0) {
 }
 header('Location: /edit');
 die();
-
