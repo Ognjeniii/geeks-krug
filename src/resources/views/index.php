@@ -78,22 +78,22 @@ if (isset($_COOKIE['stay_logged_token'])) {
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-dark" action="../../User/logic/login.php" method="post">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                         <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me"> Remember me
+                            <input type="checkbox" value="1" name="stay_logged"> Remember me
                         </label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
-                    <a href="#" class="nav-item nav-link mt-4 text-center">Forgot password?</a>
+                    <a href="/reset" class="nav-item nav-link mt-4 text-center">Forgot password?</a>
                     <hr class="my-4">
-                    <a href="#" class="w-100 btn btn-lg btn-success">Create new account</a>
+                    <a href="/signup" class="w-100 btn btn-lg btn-success">Create new account</a>
                 </form>
             </div>
         </div>
