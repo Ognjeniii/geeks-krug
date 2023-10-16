@@ -73,7 +73,7 @@ switch ($request) {
         require __DIR__ . $viewDir . '/user/dashboard.php';
         break;
 
-    case '/edit_profile':
+    case '/edit':
         require __DIR__ . $viewDir . '/user/edit_profile.php';
         break;
 

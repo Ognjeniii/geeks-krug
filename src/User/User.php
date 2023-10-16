@@ -20,6 +20,8 @@ class User
     protected $leetcode;
     protected $website;
 
+
+    //region getters
     public function getId()
     {
         return $this->id;
@@ -94,6 +96,7 @@ class User
     {
         return $this->website;
     }
+    //endregion
 
     //region register
     public static function register(
@@ -244,5 +247,25 @@ class User
         return null;
     }
     //endregion
+
+    //region get user by username
+    public static function getUserByUsername($username)
+    {
+        $db = Database::getInstance();
+        $users = $db->select(
+            'User',
+            "select * from users where username like :username",
+            [
+                ":username" => $username
+            ]
+        );
+
+        foreach ($users as $user) {
+            return $user;
+        }
+        return null;
+    }
+    //endregion
+
 
 }
