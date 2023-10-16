@@ -17,7 +17,7 @@ class User
     protected $birthday;
     protected $github;
     protected $linkedin;
-    protected $twitter;
+    protected $x;
     protected $leetcode;
     protected $website;
 
@@ -88,9 +88,9 @@ class User
         return $this->picture;
     }
 
-    public function getTwitter()
+    public function getX()
     {
-        return $this->twitter;
+        return $this->x;
     }
 
     public function getUsername()
