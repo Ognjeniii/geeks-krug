@@ -7,6 +7,7 @@ class User
     protected $id;
     protected $user_type_id;
     protected $full_name;
+    protected $gender;
     protected $username;
     protected $email;
     protected $password;
@@ -35,6 +36,11 @@ class User
     public function getFullName()
     {
         return $this->full_name;
+    }
+
+    public function getGender()
+    {
+        return $this->gender;
     }
 
     public function getAddress()
