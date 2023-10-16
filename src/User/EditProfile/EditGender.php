@@ -10,7 +10,7 @@ class EditGender extends User
         try {
             $db->update(
                 'User',
-                "update users set gedner = :gender where id like :id",
+                "update users set gender = :gender where id like :id",
                 [
                     ':gender' => $gender,
                     ':id' => $user_id
