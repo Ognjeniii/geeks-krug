@@ -85,16 +85,21 @@ $user = User::getUserById($user_id);
             </form>
         </div>
 
-        <!-- we need gender in db -->
-
-        <form action="../../../User/logic/edit_profile/edit_gender.php" method="post">
-            <label for="gender">Gender:</label>
-            <select name="gender">
-                <option value="select">Select...</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-            <button type="submit">save</button>
+        <form action="#" method="post">
+            <div class="mb-3 d-flex justify-content-between align-items-center" id="gender-row">
+                <div class="d-flex align-items-center gap-2">
+                    <label for="gender" class="form-label mb-0">Gender:</label>
+                    <select id="gender-select" name="gender" class="form-control" disabled>
+                        <option value="select">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="button" class="edit-button btn btn-primary" data-row-id="gender-row">Edit</button>
+                    <button type="submit" class="save-button btn btn-success" style="display: none;">Save</button>
+                </div>
+            </div>
         </form>
 
         <div class="m-3">
