@@ -45,9 +45,9 @@ $user = User::getUserById($user_id);
         <h4 class="mb-0 p-4"><?php echo $user->getUsername(); ?></h4>
     </div>
 
-    <div style="background-color: rgba(150, 150, 150, 0.5); position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; z-index: 1000;" id="iframeOverlay">
-        <div class="background-profile-div" style="background-color: rgb(255, 255, 255); width: 90%; max-width: 800px; height: 90%; max-height: 600px; position: relative; padding: 20px; overflow: hidden; z-index: 1002; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);">
-            <iframe src="/resources/views/user/profile_picture.php" width="100%" height="100%"></iframe>
+    <div style="background-color: rgba(100, 100, 100, 0.5); position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; z-index: 1000; padding: 40px;" id="iframeOverlay">
+        <div class="background-profile-div" style="background-color: #212529; border-radius: 8px; width: 100%; max-width: 600px; height: 100%; max-height: 400px; position: relative; padding: 20px; overflow: hidden; z-index: 1002; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4); display: flex; justify-content: center; align-items: center;">
+            <iframe src="/resources/views/user/profile_picture.php" style="width: 100%; height: 100%; border: none; cursor: pointer;"></iframe>
         </div>
     </div>
 
@@ -155,8 +155,8 @@ $user = User::getUserById($user_id);
 
         <div class="m-3">
             <form action="../../../User/logic/edit_profile/edit_leetcode.php" method="post">
-                <label for="leetcode">LeetCode:</label>
-                <input type="text" name="leetcode" value="<?php echo $user->getLeetcode(); ?>">
+                <label for="leetcode" class="d-block">LeetCode:</label>
+                <input class="d-block" type="text" name="leetcode" value="<?php echo $user->getLeetcode(); ?>">
                 <button type="submit">save</button>
             </form>
         </div>
