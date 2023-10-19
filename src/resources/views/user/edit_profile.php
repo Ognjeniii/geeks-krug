@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../../User/User.php';
+require __DIR__ . '/../../../User/EditProfile/EditProfilePicture.php';
 
 session_start();
 if (!isset($_COOKIE['user_token']) && !isset($_SESSION['user_id'])) {
@@ -14,6 +14,8 @@ if (isset($_COOKIE['user_token'])) {
     $user_id = $_SESSION['user_id'];
 }
 $user = User::getUserById($user_id);
+
+$picture = EditProfilePicture::binToPicture($user_id);
 
 ?>
 
@@ -41,7 +43,7 @@ $user = User::getUserById($user_id);
     include __DIR__ . '/../layouts/navigation.php' ?>
 
     <div class="container-fluid d-flex align-items-center justify-content-start gap-4 p-5 shadow" style="height: 300px;">
-        <img src="https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
+        <img src="data:image/png;charset=utf8;base64,<?php echo $picture; ?>" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
         <h4 class="mb-0 p-4"><?php echo $user->getUsername(); ?></h4>
     </div>
 

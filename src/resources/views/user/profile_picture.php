@@ -74,10 +74,10 @@
 
 <body data-bs-theme="dark">
     <div class="picture-drop-area">
-        <form action="#" method="post">
+        <form action="../../../User/logic/edit_profile/edit_profile_picture.php" method="post" enctype="multipart/form-data">
             <span class="fake-btn">Choose picture</span>
             <span class="picture-msg">or drag and drop picture here</span>
-            <input class="picture-input" type="file" accept="image/*" onchange="handleFileSelection(this)">
+            <input class="picture-input" type="file" accept="image/*" onchange="handleFileSelection(this)" name="picture_input">
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
     </div>
