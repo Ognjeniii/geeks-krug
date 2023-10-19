@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../Database/Database.php';
+
 class WorkExperience
 {
     protected $id;
@@ -23,11 +25,10 @@ class WorkExperience
                 ]
             );
             return 1;
-        }catch (Exception $ee){
-//            echo $ee;
-//            die();
+        } catch (Exception $ee) {
+            //            echo $ee;
+            //            die();
             return 0;
         }
     }
-
 }

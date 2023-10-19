@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../Database/Database.php';
+
 class Education
 {
     protected $id;
@@ -8,19 +10,23 @@ class Education
     protected $degree;
     protected $field_of_study;
 
-    public static function createEducation($user_id, $school, $degree, $field_of_study)
+    public static function addEducation($user_id, $school, $degree, $field_of_study)
     {
         $db = Database::getInstance();
-        $db->insert(
-            'Education',
-            "insert into education (user_id, school, degree, field_of_study) values (:user_id, :school, :degree, :field_of_study)",
-            [
-                'user_id' => $user_id,
-                ':school' => $school,
-                ':degree' => $degree,
-                ':field_of_study' => $field_of_study
-            ]
-        );
-        return $db->lastInsertId();
+        try {
+            $db->insert(
+                'Education',
+                "insert into education (user_id, school, degree, field_of_study) values (:user_id, :school, :degree, :field_of_study)",
+                [
+                    'user_id' => $user_id,
+                    ':school' => $school,
+                    ':degree' => $degree,
+                    ':field_of_study' => $field_of_study
+                ]
+            );
+            return 1;
+        } catch (Exception $e) {
+            return 0;
+        }
     }
 }

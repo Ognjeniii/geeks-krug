@@ -78,7 +78,7 @@ switch ($request) {
         break;
 
     case '/technical':
-        require __DIR__ . $viewDir . '/user/technical.php/';
+        require __DIR__ . $viewDir . '/user/technical.php';
         break;
 
         // Admin routes

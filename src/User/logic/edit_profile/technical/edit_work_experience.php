@@ -9,12 +9,11 @@ $company_name = $_POST['company_name'];
 $title = $_POST['title'];
 $location = $_POST['location'];
 
-$result = WorkExperience::addWorkExperience($user_id, $company_name,$title, $location);
-if($result == 0){
+$result = WorkExperience::addWorkExperience($user_id, $company_name, $title, $location);
+if ($result == 0) {
     header('Location: /technical?error=failed');
     die();
 }
 
 header('Location: /technical');
 die();
-
