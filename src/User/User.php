@@ -272,6 +272,4 @@ class User
         return null;
     }
     //endregion
-
-
 }

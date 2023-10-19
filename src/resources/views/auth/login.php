@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log In - Geeks Krug</title>
     <style>
@@ -22,34 +23,34 @@
 </head>
 
 <body>
-    <h1>Log In</h1>
-    <form action="../../../User/logic/login.php" method="post">
-        <label for="email">
-            Email:
-            <input type="email" name="email">
-        </label>
-        <label for="password">
-            Password:
-            <input type="password" name="password">
-        </label>
-        <label for="stay_logged">Stay logged</label>
-        <input type="checkbox" name="stay_logged" value="1">
+<h1>Log In</h1>
+<form action="../../../User/logic/auth/login.php" method="post">
+    <label for="email">
+        Email:
+        <input type="email" name="email">
+    </label>
+    <label for="password">
+        Password:
+        <input type="password" name="password">
+    </label>
+    <label for="stay_logged">Stay logged</label>
+    <input type="checkbox" name="stay_logged" value="1">
 
-        <button type="submit">Log In!</button>
+    <button type="submit">Log In!</button>
 
-        <?php
-        if (isset($_GET['error'])) : ?>
-            <p class="error">
-                <?php
-                if ($_GET['error'] === 'do_you_even_exists') : ?>
-                    Wrong Email or Password!
-                <?php
-                endif ?>
-            </p>
-        <?php
-        endif ?>
-    </form>
-    <a href="/reset">reset password</a>
+    <?php
+    if (isset($_GET['error'])) : ?>
+        <p class="error">
+            <?php
+            if ($_GET['error'] === 'do_you_even_exists') : ?>
+                Wrong Email or Password!
+            <?php
+            endif ?>
+        </p>
+    <?php
+    endif ?>
+</form>
+<a href="/reset">reset password</a>
 </body>
 
 </html>

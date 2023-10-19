@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__ . '/../EmailSender.php';
-require __DIR__ . '/../User.php';
+require __DIR__ . '/../../EmailSender.php';
+require __DIR__ . '/../../User.php';
 
 $emailTo = $_POST["email"];
 
 $user = User::checkEmail($emailTo);
-if($user == null){
+if ($user == null) {
     header('Location: /reset?error=wrong-email');
     die();
 }

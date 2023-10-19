@@ -43,7 +43,6 @@ class UserProgrammingLanguages
             return 1;
         } catch (Exception $ee) {
             echo $ee;
-            die();
             return 0;
         }
     }

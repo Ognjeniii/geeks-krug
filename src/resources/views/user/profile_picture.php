@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile picture</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         html,
         body {
@@ -73,59 +74,63 @@
 </head>
 
 <body data-bs-theme="dark">
-    <div class="picture-drop-area">
-        <form action="../../../User/logic/edit_profile/edit_profile_picture.php" method="post" enctype="multipart/form-data">
-            <span class="fake-btn">Choose picture</span>
-            <span class="picture-msg">or drag and drop picture here</span>
-            <input class="picture-input" type="file" accept="image/*" onchange="handleFileSelection(this)" name="picture_input">
-            <button type="submit" class="btn btn-primary">Upload</button>
-        </form>
-    </div>
+<div class="picture-drop-area">
+    <form action="../../../User/logic/edit_profile/basic_info/edit_profile_picture.php" method="post"
+          enctype="multipart/form-data">
+        <span class="fake-btn">Choose picture</span>
+        <span class="picture-msg">or drag and drop picture here</span>
+        <input class="picture-input" type="file" accept="image/*" onchange="handleFileSelection(this)"
+               name="picture_input">
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
-    <script>
-        function displayFileName(input) {
-            const fileInput = document.querySelector('.picture-input');
-            const pictureMsg = document.querySelector('.picture-msg');
-
-            if (input.files.length === 0) {
-                pictureMsg.innerText = "or drag and drop picture here";
-            } else {
-                const fileName = input.files[0].name;
-                pictureMsg.innerText = "Selected file: " + fileName;
-            }
-        }
-
-        function handleFileSelection(input) {
-            const fileInput = document.querySelector('.picture-input');
-            const pictureMsg = document.querySelector('.picture-msg');
-
-            if (fileInput.files.length === 0) {
-                pictureMsg.innerText = "or drag and drop picture here";
-                return;
-            }
-
-            const selectedFile = fileInput.files[0];
-            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-
-            if (allowedTypes.includes(selectedFile.type)) {
-                displayFileName(fileInput);
-            } else {
-                alert("Please select a valid image file (JPEG, PNG, GIF, JPG).");
-                fileInput.value = '';
-            }
-        }
-
+<script>
+    function displayFileName(input) {
         const fileInput = document.querySelector('.picture-input');
-        fileInput.addEventListener('change', function() {
-            if (fileInput.files.length > 1) {
-                alert("Please select only one picture at a time.");
-                fileInput.value = '';
-            }
-        });
-    </script>
+        const pictureMsg = document.querySelector('.picture-msg');
+
+        if (input.files.length === 0) {
+            pictureMsg.innerText = "or drag and drop picture here";
+        } else {
+            const fileName = input.files[0].name;
+            pictureMsg.innerText = "Selected file: " + fileName;
+        }
+    }
+
+    function handleFileSelection(input) {
+        const fileInput = document.querySelector('.picture-input');
+        const pictureMsg = document.querySelector('.picture-msg');
+
+        if (fileInput.files.length === 0) {
+            pictureMsg.innerText = "or drag and drop picture here";
+            return;
+        }
+
+        const selectedFile = fileInput.files[0];
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+
+        if (allowedTypes.includes(selectedFile.type)) {
+            displayFileName(fileInput);
+        } else {
+            alert("Please select a valid image file (JPEG, PNG, GIF, JPG).");
+            fileInput.value = '';
+        }
+    }
+
+    const fileInput = document.querySelector('.picture-input');
+    fileInput.addEventListener('change', function () {
+        if (fileInput.files.length > 1) {
+            alert("Please select only one picture at a time.");
+            fileInput.value = '';
+        }
+    });
+</script>
 
 </body>
 

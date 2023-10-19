@@ -10,7 +10,7 @@ class Education
     protected $degree;
     protected $field_of_study;
 
-    public static function addEducation($user_id, $school, $degree, $field_of_study)
+    public static function addEducation($user_id, $school, $degree, $field_of_study): int
     {
         $db = Database::getInstance();
         try {

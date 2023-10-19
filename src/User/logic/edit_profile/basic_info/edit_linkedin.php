@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditWebsite.php';
+require __DIR__ . '/../../../EditProfile/EditLinkedIn.php';
 
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$website = $_POST['website'];
+$linkedin = $_POST['linkedin'];
 
-$result = EditWebsite::updateWebsite($user_id, $website);
+$result = EditLinkedIn::updateLinkedIn($user_id, $linkedin);
 
 if ($result == 0) {
     header('Location: /edit?error=okay');

@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditGitHub.php';
+require __DIR__ . '/../../../EditProfile/EditX.php';
 
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$github = $_POST['github'];
+$x = $_POST['x'];
 
-$result = EditGitHub::updateGitHub($user_id, $github);
+$result = EditX::updateX($user_id, $x);
 
 if ($result == 0) {
     header('Location: /edit?error=okay');
@@ -15,4 +15,5 @@ if ($result == 0) {
 }
 
 header('Location: /edit');
+
 die();

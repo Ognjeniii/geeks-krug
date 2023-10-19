@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require __DIR__ . '/../User.php';
+require __DIR__ . '/../../User.php';
 
 $newPass = $_POST["new_pass"];
 $newPassRepeat = $_POST["new_pass_repeat"];

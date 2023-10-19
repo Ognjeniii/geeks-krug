@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../User.php';
+require_once __DIR__ . '/../../User.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];

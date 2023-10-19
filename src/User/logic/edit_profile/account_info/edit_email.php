@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditEmail.php';
+require __DIR__ . '/../../../EditProfile/EditEmail.php';
 
 session_start();
 

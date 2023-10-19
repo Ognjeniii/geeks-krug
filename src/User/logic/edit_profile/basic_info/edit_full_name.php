@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditFullName.php';
+require __DIR__ . '/../../../EditProfile/EditFullName.php';
 
 session_start();
 $user_id = $_SESSION['user_id'];

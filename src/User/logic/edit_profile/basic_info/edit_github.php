@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditPhoneNumber.php';
+require __DIR__ . '/../../../EditProfile/EditGitHub.php';
 
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$phone_number = $_POST['phone_number'];
+$github = $_POST['github'];
 
-$result = EditPhoneNumber::updatePhoneNumber($user_id, $phone_number);
+$result = EditGitHub::updateGitHub($user_id, $github);
 
 if ($result == 0) {
     header('Location: /edit?error=okay');

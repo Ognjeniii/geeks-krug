@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../User.php';
+require_once __DIR__ . '/../../User.php';
 
 $full_name = $_POST['full_name'];
 $username = $_POST['username'];

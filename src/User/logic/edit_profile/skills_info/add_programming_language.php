@@ -35,5 +35,3 @@ if ($inserted == 0) {
 
 header('Location: /technical');
 die();
-
-?>

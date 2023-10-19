@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditAddress.php';
+require __DIR__ . '/../../../EditProfile/EditLeetCode.php';
 
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$address = $_POST['address'];
+$leetcode = $_POST['leetcode'];
 
-$result = EditAddress::updateAddress($user_id, $address);
+$result = EditLeetCode::updateLeetCode($user_id, $leetcode);
 
 if ($result == 0) {
     header('Location: /edit?error=okay');

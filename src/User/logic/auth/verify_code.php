@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/../EmailSender.php";
+require __DIR__ . "/../../EmailSender.php";
 
 session_start();
 

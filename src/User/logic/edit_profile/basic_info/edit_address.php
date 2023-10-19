@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../EditProfile/EditBirthday.php';
+require __DIR__ . '/../../../EditProfile/EditAddress.php';
 
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$birthday = $_POST['birthday'];
+$address = $_POST['address'];
 
-$result = EditBirthday::updateBirthday($user_id, $birthday);
+$result = EditAddress::updateAddress($user_id, $address);
 
 if ($result == 0) {
     header('Location: /edit?error=okay');
