@@ -36,6 +36,7 @@
 
             <button type="submit" class="btn btn-dark">Save</button>
         </form>
+        <hr>
 
         <h3 class="m-3">Education</h3>
         <form action="../../../User/logic/edit_profile/technical/edit_education.php" method="post">
@@ -57,6 +58,15 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
 
+        <hr>
+        <h3 class="m-3">Programming languages</h3>
+        <form action="../../../User/logic/edit_profile/technical/add_programming_language.php" method="post">
+            <label for="programming_language">Add programming language:</label>
+            <input type="text" name="programming_language">
+            <button class="btn btn-primary">Save</button>
+        </form>
+
+        <br>
         <a href="/edit" class="btn btn-primary">Return back</a>
     </div>
 
