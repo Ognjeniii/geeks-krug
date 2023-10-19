@@ -53,6 +53,10 @@ $user = User::getUserById($user_id);
 
     <div class="container bg-dark-subtle p-4 rounded-2 shadow-sm" style="margin-top: -37px;">
 
+        <div>
+            <a href="/technical" class="btn btn-outline-light">Tech</a>
+        </div>
+
         <p class="fs-5">Account Information</p>
 
         <div class="m-3">

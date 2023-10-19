@@ -17,7 +17,7 @@
 
     <div class="container">
         <h3 class="m-3">Technical knowledge</h3>
-        <form action="../../../User/logic/edit_profile/tehnical/edit_work_experience.php" method="post">
+        <form action="../../../User/logic/edit_profile/technical/edit_work_experience.php" method="post">
             <h4>Experience</h4>
             <div>
                 <label for="company_name">Company name:</label>
@@ -33,6 +33,8 @@
                 <label for="location">Location:</label>
                 <input type="text" name="location">
             </div>
+
+            <button type="submit" class="btn btn-dark">Save</button>
         </form>
     </div>
 
