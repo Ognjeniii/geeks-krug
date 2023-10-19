@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../../../../ProgrammingLanguage/ProgrammingLanguage.php';
-require __DIR__ . '/../../../../UserHelperClasses/UserProgrammingLanguages.php';
+require __DIR__ . '/../../../../UserProgrammingLanguages/UserProgrammingLanguages.php';
 
 session_start();
 $user_id = $_SESSION['user_id'];
