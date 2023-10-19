@@ -43,7 +43,7 @@ $picture = EditProfilePicture::binToPicture($user_id);
     include __DIR__ . '/../layouts/navigation.php' ?>
 
     <div class="container-fluid d-flex align-items-center justify-content-start gap-4 p-5 shadow" style="height: 300px;">
-        <img src="data:image/png;charset=utf8;base64,<?php echo $picture; ?>" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo $picture; ?>" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
         <h4 class="mb-0 p-4"><?php echo $user->getUsername(); ?></h4>
     </div>
 
