@@ -23,6 +23,5 @@ class EditX extends User
             echo $e;
             die();
         }
-        return 0;
     }
 }

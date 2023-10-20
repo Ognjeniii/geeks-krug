@@ -27,12 +27,6 @@ if (isset($_COOKIE['stay_logged_token'])) {
         html {
             height: 100%;
         }
-
-        @media (max-width: 768px) {
-            .col-md-8 {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 

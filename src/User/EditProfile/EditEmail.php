@@ -24,9 +24,7 @@ class EditEmail extends User
                 return 0;
             }
         } catch (Exception $ee) {
-//            echo $ee;
-//            die();
+            return 0;
         }
-        return 0;
     }
 }

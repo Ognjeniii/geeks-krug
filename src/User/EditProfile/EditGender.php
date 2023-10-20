@@ -17,7 +17,7 @@ class EditGender extends User
                 ]
             );
             return 1;
-        }catch (Exception $ee){
+        } catch (Exception $ee) {
 //            echo $ee;
 //            die();
         }

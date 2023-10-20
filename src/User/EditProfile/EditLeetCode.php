@@ -22,6 +22,5 @@ class EditLeetCode extends User
             echo $e;
             die();
         }
-        return 0;
     }
 }

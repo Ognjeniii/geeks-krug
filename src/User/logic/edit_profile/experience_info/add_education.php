@@ -12,9 +12,9 @@ $field_of_study = $_POST['field_of_study'];
 $result = Education::addEducation($user_id, $school, $degree, $field_of_study);
 
 if ($result == 0) {
-    header('Location: /technical?error=err');
+    header('Location: /edit?error=err');
     die();
 }
 
-header('Location: /technical');
+header('Location: /edit');
 die();

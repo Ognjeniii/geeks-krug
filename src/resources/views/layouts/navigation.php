@@ -14,7 +14,7 @@
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Geeks Krug</h5>
                 <?php
                 } else { ?>
-                    <h5 class="offcanvas-title" id="offcanvasNabarLabel"><?php
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><?php
                         echo $_SESSION['full_name'] ?></h5>
                 <?php
                 } ?>
@@ -28,7 +28,7 @@
                     <?php
                     if (!$_SESSION['user_type_id'] === 2) { ?>
                         <li class="nav-item">
-                            <a href="#"><span class="nav-link active"></span> Sign Up</a>
+                            <a class="nav-link" href="/login">Log in</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/signup">Sign up</a>

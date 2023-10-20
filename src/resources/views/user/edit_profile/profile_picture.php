@@ -75,7 +75,7 @@
 
 <body data-bs-theme="dark">
 <div class="picture-drop-area">
-    <form action="../../../User/logic/edit_profile/basic_info/edit_profile_picture.php" method="post"
+    <form action="../../../../User/logic/edit_profile/basic_info/edit_profile_picture.php" method="post"
           enctype="multipart/form-data">
         <span class="fake-btn">Choose picture</span>
         <span class="picture-msg">or drag and drop picture here</span>
@@ -92,7 +92,6 @@
 
 <script>
     function displayFileName(input) {
-        const fileInput = document.querySelector('.picture-input');
         const pictureMsg = document.querySelector('.picture-msg');
 
         if (input.files.length === 0) {

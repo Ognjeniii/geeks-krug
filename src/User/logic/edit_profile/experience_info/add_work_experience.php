@@ -11,9 +11,9 @@ $location = $_POST['location'];
 
 $result = WorkExperience::addWorkExperience($user_id, $company_name, $title, $location);
 if ($result == 0) {
-    header('Location: /technical?error=failed');
+    header('Location: /edit?error=failed');
     die();
 }
 
-header('Location: /technical');
+header('Location: /edit');
 die();

@@ -22,6 +22,5 @@ class EditLinkedIn extends User
             echo $e;
             die();
         }
-        return 0;
     }
 }

@@ -20,8 +20,7 @@ class EditBirthday extends User
             return 1;
         } catch (Exception $e) {
             echo $e;
+            die();
         }
-
-        return 0;
     }
 }

@@ -23,7 +23,5 @@ class EditAddress extends User
             echo $e;
             die();
         }
-
-        return 0;
     }
 }

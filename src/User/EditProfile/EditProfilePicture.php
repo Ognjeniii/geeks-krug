@@ -47,8 +47,6 @@ class EditProfilePicture extends User
 
         $binary_data = $user->getPicture();
 
-        $base64Data = base64_encode($binary_data);
-
-        return $base64Data;
+        return base64_encode($binary_data);
     }
 }

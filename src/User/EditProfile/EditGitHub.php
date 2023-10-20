@@ -22,7 +22,5 @@ class EditGitHub extends User
             echo $e;
             die();
         }
-
-        return 0;
     }
 }
