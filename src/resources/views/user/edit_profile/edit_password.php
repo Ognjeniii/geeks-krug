@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-md-6">
-            <form action="../../../User/logic/edit_profile/account_info/edit_password.php" method="post">
+            <form action="../../../../User/logic/edit_profile/account_info/edit_password.php" method="post">
                 <label for="old_password" class="form-label">Enter old password:</label>
                 <input type="password" name="old_password" class="form-control">
 

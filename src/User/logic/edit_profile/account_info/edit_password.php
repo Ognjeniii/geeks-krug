@@ -15,6 +15,7 @@ if($new_password != $new_password_repeat){
 }
 
 $result = EditPassword::editPassword($user_id, $old_password, $new_password);
+
 if($result == 0){
     header('Location: /edit_password?error=edit-failed');
     die();

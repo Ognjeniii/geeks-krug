@@ -1,11 +1,16 @@
 <?php
 
+session_start();
 if (isset($_COOKIE['stay_logged_token'])) {
     $user_cookie = $_COOKIE['user_token'];
-    session_start();
     $_SESSION['user_id'] = $user_cookie;
     header('Location: /home');
     die();
+} else {
+    if (isset($_SESSION['user_id'])) {
+        header('Location: /home');
+        die();
+    }
 }
 
 ?>

@@ -40,7 +40,7 @@ $picture = EditProfilePicture::binToPicture($user_id);
 
     <div class="mt-4">
         <label for="password" class="form-label">Password:</label>
-        <a href="#" class="nav-item nav-link text-primary d-inline-block">Change Password</a>
+        <a href="/edit_password" class="nav-item nav-link text-primary d-inline-block">Change Password</a>
     </div>
 
 </div>

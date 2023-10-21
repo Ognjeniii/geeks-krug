@@ -8,10 +8,8 @@ class EditPassword extends User
     {
         $db = Database::getInstance();
         try {
-            $user = self::checkPass($user_id, $old_password);
-            echo $user->getUsername();
-            die();
-            if ($user == null) {
+            $pass_returned = self::checkPass($user_id, $old_password);
+            if ($pass_returned == 0) {
                 return 0;
             }
             $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
@@ -31,26 +29,31 @@ class EditPassword extends User
         }
     }
 
-    public static function checkPass($user_id, $old_password)
+    public static function checkPass($user_id, $old_password): int
     {
         $db = Database::getInstance();
         try {
-            $hashed_old_password = password_hash($old_password, PASSWORD_DEFAULT);
-            $users = $db->select(
+            $user = $db->select(
                 'User',
-                "select * from users where id like :id and password like :password",
+                "select * from users where id like :id",
                 [
-                    ':id' => $user_id,
-                    ':password' => $hashed_old_password
+                    ':id' => $user_id
                 ]
             );
 
-            foreach ($users as $user) {
-                return $user;
+            $pass = null;
+            foreach ($user as $p) {
+                $pass = $p;
+
+                if (password_verify($old_password, $pass->getPassword())) {
+                    return 1;
+                }
             }
         } catch (Exception $ee) {
-            return null;
+//            echo $ee;
+//            die();
+            return 0;
         }
-        return null;
+        return 0;
     }
 }

@@ -81,7 +81,7 @@
         <span class="picture-msg">or drag and drop picture here</span>
         <input class="picture-input" type="file" accept="image/*" onchange="handleFileSelection(this)"
                name="picture_input">
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button type="submit" class="btn btn-primary" id="btn-upload">Upload</button>
     </form>
 </div>
 
