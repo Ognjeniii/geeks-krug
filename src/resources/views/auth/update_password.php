@@ -6,6 +6,16 @@ if (!isset($_SESSION['code_verified'])) {
     header('Location: /login');
     die();
 }
+
+// check does time of 10 min is expired
+$now = time();
+$expire_time = $_SESSION['expire_time'];
+if($now > $expire_time) {
+    session_destroy();
+    header('Location: /reset');
+    die();
+}
+
 ?>
 
 <!doctype html>

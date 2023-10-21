@@ -52,10 +52,6 @@ switch ($request) {
         require __DIR__ . $viewDir . '/auth/login.php';
         break;
 
-    case '/test':
-        require __DIR__ . $viewDir . '/test.php';
-        break;
-
     case '/reset':
         require  __DIR__ . $viewDir . '/auth/reset_password.php';
         break;
@@ -79,6 +75,10 @@ switch ($request) {
 
     case '/edit_password':
         require __DIR__ . $viewDir . 'user/edit_profile/edit_password.php';
+        break;
+
+    case '/profile':
+        require __DIR__ . $viewDir . 'user/profile.php';
         break;
 
         // Admin routes

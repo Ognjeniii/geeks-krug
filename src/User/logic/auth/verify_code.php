@@ -15,5 +15,4 @@ if ($generatedCode !== $userCode) {
 $_SESSION['code_verified'] = true;
 
 header('Location: /update');
-
 die();

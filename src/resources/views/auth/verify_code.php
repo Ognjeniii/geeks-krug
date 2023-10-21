@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['code_result'])){
+    header('Location: /reset');
+    die();
+}
+
+$now = time();
+$expire_time = $_SESSION['expire_time'];
+if($now > $expire_time) {
+    session_destroy();
+    header('Location: /reset');
+    die();
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 

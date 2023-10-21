@@ -30,8 +30,9 @@ class EmailSender
             $mail->addAddress($emailTo);
             $mail->isHTML(true);
             $mail->Subject = "Password reset - Geeks Krug";
-            $mail->Body = "Code: " . $num;
+            $mail->Body = "Code: " . $num . "<br>You have 10 minutes for upadating your password.";
             $mail->send();
+
 
             return $num;
 

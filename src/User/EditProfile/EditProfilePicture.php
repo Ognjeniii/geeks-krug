@@ -44,9 +44,10 @@ class EditProfilePicture extends User
     public static function binToPicture($user_id)
     {
         $user = User::getUserById($user_id);
-
+        if($user->getPicture() == null){
+            return null;
+        }
         $binary_data = $user->getPicture();
-
         return base64_encode($binary_data);
     }
 }
