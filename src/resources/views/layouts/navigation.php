@@ -1,3 +1,10 @@
+<?php
+
+$user_id = $_SESSION['user_id'];
+$user = EditProfilePicture::getUserById($user_id);
+
+
+?>
 <style>
     .navbar-header {
         display: flex;
@@ -37,14 +44,15 @@
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <?php
-                if (!$_SESSION['full_name']) { ?>
+                if (!$user->getFullName()) { ?>
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Geeks Krug</h5>
                 <?php
-                } else { ?>
+                }  else{ ?>
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><?php
-                                                                            echo $_SESSION['full_name'] ?></h5>
+                        echo $user->getFullName() ?></h5>
                 <?php
                 } ?>
+
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -53,7 +61,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <?php
-                    if (!$_SESSION['user_type_id'] === 2) { ?>
+                    if (!$user->getUserTypeId() === 2) { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Log in</a>
                         </li>

@@ -10,6 +10,7 @@ if (!isset($_COOKIE['user_token']) && !isset($_SESSION['user_id'])) {
 
 if (isset($_COOKIE['user_token'])) {
     $user_id = $_COOKIE['user_token'];
+    $_SESSION['user_id'] = $user_id;
 } else {
     $user_id = $_SESSION['user_id'];
 }
@@ -17,6 +18,7 @@ if (isset($_COOKIE['user_token'])) {
 $user = User::getUserById($user_id);
 
 $picture = EditProfilePicture::binToPicture($user_id);
+
 ?>
 
 <!doctype html>
