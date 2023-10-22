@@ -1,12 +1,39 @@
+<style>
+    .navbar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-profile img {
+        margin-right: 10px;
+    }
+</style>
+
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            GK
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                GK
+            </a>
+        </div>
+        <div class="user-profile">
+            <a href="/profile">
+                <?php if ($user->getPicture() == null) : ?>
+                    <img src="/public/images/UserIMage.png" alt="profile_avatar" width="40" height="40" class="rounded shadow">
+                <?php else : ?>
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo $picture; ?>" alt="profile_avatar" width="40" height="40" class="rounded shadow">
+                <?php endif; ?>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="padding-inline: 6px;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <?php
@@ -15,7 +42,7 @@
                 <?php
                 } else { ?>
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><?php
-                        echo $_SESSION['full_name'] ?></h5>
+                                                                            echo $_SESSION['full_name'] ?></h5>
                 <?php
                 } ?>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

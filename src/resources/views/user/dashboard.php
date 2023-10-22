@@ -1,12 +1,22 @@
 <?php
 
-session_start();
+require __DIR__ . '/../../../User/EditProfile/EditProfilePicture.php';
 
-if (!isset($_SESSION['user_id'])) {
+session_start();
+if (!isset($_COOKIE['user_token']) && !isset($_SESSION['user_id'])) {
     header('Location: /login');
     die();
 }
 
+if (isset($_COOKIE['user_token'])) {
+    $user_id = $_COOKIE['user_token'];
+} else {
+    $user_id = $_SESSION['user_id'];
+}
+
+$user = User::getUserById($user_id);
+
+$picture = EditProfilePicture::binToPicture($user_id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +25,13 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body data-bs-theme="dark">
-<?php
-@include __DIR__ . '/../layouts/navigation.php'; ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <?php
+    @include __DIR__ . '/../layouts/navigation.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
