@@ -38,14 +38,14 @@ $picture = EditProfilePicture::binToPicture($user_id);
 
     <div class="container-fluid d-flex align-items-center justify-content-start gap-4 p-5 shadow" style="height: 300px;">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <?php if ($user->getPicture() == null) : ?>
                     <img src="/public/images/UserIMage.png" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
                 <?php else : ?>
                     <img src="data:image/jpg;charset=utf8;base64,<?php echo $picture; ?>" alt="profile_avatar" width="150" height="150" class="rounded shadow" id="avatar">
                 <?php endif; ?>
             </div>
-            <div class="col-md-8 d-flex align-items-center">
+            <div class="col-md-6 d-flex align-items-center">
                 <div class="d-flex flex-column align-items-start">
                     <h3 class="mb-0 py-4"><?php echo $user->getUsername(); ?></h3>
                 </div>
