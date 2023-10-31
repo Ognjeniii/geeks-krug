@@ -6,6 +6,11 @@ class UserProgrammingLanguages
     protected $user_id;
     protected $programming_language_id;
 
+    public function getProgrammingLanguageId()
+    {
+        return $this->programming_language_id;
+    }
+
     public static function doesAlreadyExist($user_id, $programming_language_id)
     {
         $db = Database::getInstance();
@@ -43,6 +48,45 @@ class UserProgrammingLanguages
             return 1;
         } catch (Exception $ee) {
             echo $ee;
+            return 0;
+        }
+    }
+
+    public static function getProgrammingLanguagesByUserId($user_id)
+    {
+        $db = Database::getInstance();
+
+        try {
+            $db->select(
+                'UserProgrammingLanguages',
+                'select * from users_programming_languages where user_id like :user_id',
+                [
+                    ':user_id' => $user_id,
+                ]
+            );
+            return 1;
+        } catch (Exception $e) {
+            echo $e;
+            return 0;
+        }
+    }
+
+    public static function getProgrammingLanguages($user_id)
+    {
+        $db = Database::getInstance();
+
+        try {
+            $db->select(
+                'ProgrammingLanguages',
+                'select * from programming_languages where user_id like :user_id',
+                [
+                    ':user_id' => $user_id,
+                ]
+            );
+
+            return 1;
+        } catch (Exception $e) {
+            echo $e;
             return 0;
         }
     }

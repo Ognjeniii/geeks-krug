@@ -1,11 +1,16 @@
 <?php
 
-require __DIR__ . '/../Database/Database.php';
+require_once __DIR__ . '/../Database/Database.php';
 
 class ProgrammingLanguage
 {
     protected $id;
     protected $programming_language;
+
+    public function __toString()
+    {
+        return $this->programming_language;
+    }
 
     public function getId()
     {
@@ -33,4 +38,27 @@ class ProgrammingLanguage
         return null;
     }
 
+    public static function getProgrammingLanguage($id)
+    {
+        $db = Database::getInstance();
+
+        try {
+            $programming_languages = $db->select(
+                'ProgrammingLanguage',
+                'select programming_language from programming_languages where id like :id',
+                [
+                    ':id' => $id,
+                ]
+            );
+
+            foreach ($programming_languages as $programming_language) {
+                return $programming_language;
+            }
+
+            return 0;
+        } catch (Exception $e) {
+            echo $e;
+            return 0;
+        }
+    }
 }
