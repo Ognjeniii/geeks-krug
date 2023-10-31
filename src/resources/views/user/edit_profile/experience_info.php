@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/../../../../User/EditProfile/EditProfilePicture.php';
+require __DIR__ . '/../../../../WorkExperience/WorkExperience.php';
 
 session_start();
 if (!isset($_COOKIE['user_token']) && !isset($_SESSION['user_id'])) {
@@ -18,6 +19,9 @@ if (isset($_COOKIE['user_token'])) {
 $user = User::getUserById($user_id);
 
 $picture = EditProfilePicture::binToPicture($user_id);
+
+$work_experience = WorkExperience::getUserExperienceByUserId($user_id);
+
 ?>
 
 <div class="container-fluid bg-dark-subtle p-4 rounded-2 shadow-sm">
@@ -38,6 +42,18 @@ $picture = EditProfilePicture::binToPicture($user_id);
                 <input type="text" class="form-control" id="floatingInput" name="location">
                 <label for="floatingInput">Location:</label>
             </div>
+
+            <div>
+                <?php foreach ($work_experience as $ws): ?>
+                    <div class="d-flex p-1 border border-warning rounded" style="background-color: #262102; opacity: 90%;">
+                        <span class="px-2"> <?= $ws->getTitle(); ?></span>
+                        <span class="px-2"> <?= $ws->getCompanyName(); ?></span>
+                        <span class="px-2"> <?= $ws->getLocation(); ?></span>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
+            </div>
+
             <button type="submit" class="btn btn-success">Save</button>
         </form>
     </div>
