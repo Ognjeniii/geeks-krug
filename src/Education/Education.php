@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../Database/Database.php';
+require_once __DIR__ . '/../Database/Database.php';
 
 class Education
 {
