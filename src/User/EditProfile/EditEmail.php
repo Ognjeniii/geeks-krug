@@ -20,6 +20,8 @@ class EditEmail extends User
                     ]
                 );
                 return 1;
+            } elseif ($user->getId() == $user_id) {
+                return 1;
             } else {
                 return 0;
             }

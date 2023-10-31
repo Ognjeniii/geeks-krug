@@ -80,11 +80,11 @@ if (isset($_COOKIE['stay_logged_token'])) {
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-dark" action="../../User/logic/auth/login.php" method="post">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="" name="email">
                         <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="" name="password">
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="checkbox mb-3">

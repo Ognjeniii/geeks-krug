@@ -9,6 +9,7 @@ class EditUsername extends User
         $db = Database::getInstance();
         try {
             $user = User::getUserByUsername($username);
+
             if ($user == null) {
                 $db->update(
                     'User',
@@ -18,6 +19,8 @@ class EditUsername extends User
                         ':id' => $user_id
                     ]
                 );
+                return 1;
+            } elseif ($user->getId() == $user_id) {
                 return 1;
             } else {
                 return 0;

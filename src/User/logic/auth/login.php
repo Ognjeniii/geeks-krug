@@ -31,7 +31,10 @@ $_SESSION['full_name'] = $user->getFullName();
 $user_type_id = $user->getUserTypeId();
 $_SESSION['user_type_id'] = $user_type_id;
 
-if ($user_type_id == 2) {
-    header('Location: /home');
-    die();
-}
+//if ($user_type_id == 2) {
+//    header('Location: /home');
+//    die();
+//}
+
+header('Location: /home');
+die();
