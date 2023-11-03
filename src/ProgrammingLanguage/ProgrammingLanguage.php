@@ -45,7 +45,7 @@ class ProgrammingLanguage
         try {
             $programming_languages = $db->select(
                 'ProgrammingLanguage',
-                'select programming_language from programming_languages where id like :id',
+                'select * from programming_languages where id like :id',
                 [
                     ':id' => $id,
                 ]
@@ -55,10 +55,10 @@ class ProgrammingLanguage
                 return $programming_language;
             }
 
-            return 0;
+            return null;
         } catch (Exception $e) {
             echo $e;
-            return 0;
+            return null;
         }
     }
 }

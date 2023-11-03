@@ -57,17 +57,18 @@ class UserProgrammingLanguages
         $db = Database::getInstance();
 
         try {
-            $db->select(
+            $result = $db->select(
                 'UserProgrammingLanguages',
-                'select * from users_programming_languages where user_id like :user_id',
+                'select programming_language_id from users_programming_languages where user_id like :user_id',
                 [
                     ':user_id' => $user_id,
                 ]
             );
-            return 1;
+
+            return $result;
         } catch (Exception $e) {
             echo $e;
-            return 0;
+            return [];
         }
     }
 }
