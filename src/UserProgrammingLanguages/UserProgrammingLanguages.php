@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../Database/Database.php';
+
 class UserProgrammingLanguages
 {
     protected $id;
@@ -70,5 +72,15 @@ class UserProgrammingLanguages
             echo $e;
             return [];
         }
+    }
+
+    public static function deleteProgrammingLanguageByUserId($user_id, $programming_language_id)
+    {
+        $db = Database::getInstance();
+
+        return $db->delete('delete from users_programming_languages where user_id = :user_id and programming_language_id = :programming_language_id', [
+            ':user_id' => $user_id,
+            'programming_language_id' => $programming_language_id,
+        ]);
     }
 }
