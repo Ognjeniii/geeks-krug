@@ -70,24 +70,4 @@ class UserProgrammingLanguages
             return 0;
         }
     }
-
-    public static function getProgrammingLanguages($user_id)
-    {
-        $db = Database::getInstance();
-
-        try {
-            $db->select(
-                'ProgrammingLanguages',
-                'select * from programming_languages where user_id like :user_id',
-                [
-                    ':user_id' => $user_id,
-                ]
-            );
-
-            return 1;
-        } catch (Exception $e) {
-            echo $e;
-            return 0;
-        }
-    }
 }
