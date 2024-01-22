@@ -62,7 +62,7 @@ $_SESSION['biggestId'] = $biggestId;
         <div class="row">
 
             <div class="col">
-                <div class="container w-100 h-50 mt-4 bg-secondary text-dark border rounded">
+                <div class="container w-100  mt-4 bg-secondary text-dark border rounded"  style="min-height: 350px;">
                     <h2 class="p-3 fw-bold">Geeks-krug</h1>
                     <hr>
                     <div class="pb-2">
@@ -106,7 +106,7 @@ $_SESSION['biggestId'] = $biggestId;
             </div>
 
             <div class="col">
-                <div class="container w-100 h-50 mt-4 bg-secondary text-dark border rounded">
+                <div class="container w-100 h-50 mt-4 bg-secondary text-dark border rounded"  style="min-height: 350px;">
 
                 </div>
             </div>
