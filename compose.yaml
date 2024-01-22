@@ -1,0 +1,105 @@
+# Docker Compose version
+# https://docs.docker.com/compose/compose-file/compose-file-v3/
+version: "3"
+
+# Start of services
+services:
+  # Define the nginx service
+  nginx:
+    build:
+      # Use current directory as build context
+      context: .
+      # Specify nginx Dockerfile location
+      dockerfile: nginx/Dockerfile
+    # Expose port 40001 for nginx
+    expose:
+      - 40001
+    # Map port 40001 externally to 80 internally for nginx
+    ports:
+      - 40001:80
+    # Connect to the "internal" network
+    networks:
+      - internal
+    volumes:
+      # Mount the src directory into the nginx container
+      - ./:/var/www/html/
+      # Mount nginx logs
+      - ./logs/nginx:/var/log/nginx/
+
+  # Define the php service
+  php:
+    build:
+      # Use current directory as build context
+      context: .
+      # Specify php Dockerfile location
+      dockerfile: php/Dockerfile
+    # Connect to the "internal" network
+    networks:
+      - internal
+    volumes:
+      # Mount the src directory into the php container
+      - ./:/var/www/html/
+      # Mount php logs
+      - ./logs/php.log:/var/log/fpm-php.www.log
+
+  # Define the mariadb service
+  mariadb:
+    # Use official mariadb image from Docker Hub
+    image: mariadb
+    expose:
+      # Expose port 3307 for mariadb
+      - 3307
+    ports:
+      # Map port 3307 externally to 3306 internally for mariadb
+      - 3307:3306
+    networks:
+      # Connect to the "internal" network
+      - internal
+    volumes:
+      # Use named volume "mariadb" for mariadb data
+      - mariadb:/var/lib/mysql
+    # Set environment variables for mariadb
+    environment:
+      # Set the db root password
+      MYSQL_ROOT_PASSWORD: root
+      # Create a db user and password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      # Set port numbers
+      MYSQL_TCP_PORT: 3307
+      MYSQL_UNIX_PORT: 3307
+      # Set MARIADB_MYSQL_LOCALHOST_USER to a non-empty value to create the mysql@locahost database user.
+      # This user is especially useful for a variety of health checks and backup scripts.
+      # https://hub.docker.com/_/mariadb
+      # MARIADB_MYSQL_LOCALHOST_USER: true
+
+  # Define the pma service
+  pma:
+    # Use official phpMyAdmin image from Docker Hub
+    image: phpmyadmin
+    # Expose port 40002 for pma
+    expose:
+      - 40002
+    # Map port 40002 externally to 80 internally for pma
+    ports:
+      - 40002:80
+    # Connect to the "internal" network
+    networks:
+      - internal
+    # Set environment variables for phpMyAdmin
+    environment:
+      # Disable arbitrary server connection; use the configured host and port
+      - PMA_ARBITRARY=0
+      # Set the host for phpMyAdmin to connect to
+      - PMA_HOST=mariadb
+      # Set the port for phpMyAdmin to connect to
+      - PMA_PORT=3307
+
+# Define the "internal" network for communication between containers
+networks:
+  internal:
+
+# Define a local volume driver for mariadb data
+volumes:
+  mariadb:
+    driver: local
